@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Owner } from 'src/app/_models/owner.model';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { RepositoryService } from 'src/app/_services/repository.service';
+import { ErrorHandlerService } from 'src/app/_services/error-handler.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-owner-list',
@@ -14,9 +16,11 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
 
   public dataSource = new MatTableDataSource<Owner>()
 
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator
 
-  constructor(private repoService: RepositoryService) { }
+  constructor(private repoService: RepositoryService, private errorService: ErrorHandlerService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getAllOwners();
@@ -24,17 +28,22 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   public getAllOwners = () => {
     this.repoService.getData('api/owner')
       .subscribe(res => {
         this.dataSource.data = res as Owner[];
+      },
+      (error) => {
+        this.errorService.handleError(error);
       })
   }
 
   public redirectToDetails = (id: string) => {
-    
+    let url: string = `/owner/details/${id}`;
+    this.router.navigate([url]);
   }
 
   public redirectToUpdate = (id: string) => {

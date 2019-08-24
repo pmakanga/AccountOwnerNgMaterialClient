@@ -11,7 +11,13 @@ import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
+
 import { RepositoryService } from './_services/repository.service';
+
+
+
 
 
 
@@ -22,7 +28,9 @@ import { RepositoryService } from './_services/repository.service';
       LayoutComponent,
       HomeComponent,
       HeaderComponent,
-      SidenavListComponent
+      SidenavListComponent, 
+      NotFoundComponent,
+      ServerErrorComponent
    ],
    imports: [
       BrowserModule,

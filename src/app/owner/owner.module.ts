@@ -6,11 +6,15 @@ import { OwnerComponent } from './owner.component';
 import { Routes, RouterModule } from '@angular/router';
 import { OwnerListComponent } from './owner-list/owner-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { OwnerDetailsComponent } from './owner-details/owner-details.component';
+import { OwnerDataComponent } from './owner-details/owner-data/owner-data.component';
+import { AccountDataComponent } from './owner-details/account-data/account-data.component';
 
 
 
 const routes: Routes = [
-  { path: 'owners', component: OwnerListComponent }
+  { path: 'owners', component: OwnerListComponent },
+  { path: 'details/:id', component: OwnerDetailsComponent }
 ]
 
 @NgModule({
@@ -25,7 +29,10 @@ const routes: Routes = [
   ],
   declarations: [
     OwnerComponent,
-    OwnerListComponent
+    OwnerListComponent,
+    OwnerDetailsComponent,
+    OwnerDataComponent,
+    AccountDataComponent
   ]
 })
 export class OwnerModule { }

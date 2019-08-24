@@ -9,7 +9,14 @@ import { MatTabsModule,
           MatMenuModule,
           MatTableModule,
           MatSortModule,
-          MatInputModule
+          MatInputModule,
+          MatPaginatorModule,
+          MatProgressBarModule,
+          MatCheckboxModule,
+          MatProgressSpinnerModule,
+          MatCardModule,
+          MatSelectModule,
+          MatExpansionModule
         } from '@angular/material';
 
 
@@ -27,7 +34,14 @@ import { MatTabsModule,
     MatMenuModule,
     MatTableModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatSelectModule,
+    MatExpansionModule
   ],
   exports: [
     MatTabsModule,
@@ -39,7 +53,14 @@ import { MatTabsModule,
     MatMenuModule,
     MatTableModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatSelectModule,
+    MatExpansionModule
   ],
 })
 export class MaterialModule { }

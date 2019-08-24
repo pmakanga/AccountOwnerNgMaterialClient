@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { OwnerListComponent } from './owner-list.component';
+import { OwnerDataComponent } from './owner-data.component';
 
-describe('OwnerListComponent', () => {
-  let component: OwnerListComponent;
-  let fixture: ComponentFixture<OwnerListComponent>;
+describe('OwnerDataComponent', () => {
+  let component: OwnerDataComponent;
+  let fixture: ComponentFixture<OwnerDataComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OwnerListComponent ]
+      declarations: [ OwnerDataComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OwnerListComponent);
+    fixture = TestBed.createComponent(OwnerDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
