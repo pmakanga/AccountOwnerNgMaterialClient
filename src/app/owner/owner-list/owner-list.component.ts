@@ -35,6 +35,7 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
     this.repoService.getData('api/owner')
       .subscribe(res => {
         this.dataSource.data = res as Owner[];
+        console.log(this.dataSource)
       },
       (error) => {
         this.errorService.handleError(error);
@@ -47,11 +48,13 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
   }
 
   public redirectToUpdate = (id: string) => {
-    
+    let url: string = `/owner/update/${id}`;
+    this.router.navigate([url])
   }
 
   public redirectToDelete = (id: string) => {
-    
+    let url: string = `/owner/delete/${id}`;
+    this.router.navigate([url])
   }
 
   public doFilter = (value: string) => {
