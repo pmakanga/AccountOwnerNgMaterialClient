@@ -32,6 +32,7 @@ export class OwnerDeleteComponent implements OnInit {
       disableClose: true,
       data: { }
     }
+    
   }
 
   getOwnerById() {
