@@ -9,8 +9,9 @@ import { AccountUpdateComponent } from './account-update/account-update.componen
 import { AccountDeleteComponent } from './account-delete/account-delete.component';
 
 import { MaterialModule } from '../material.module';
-import { FlexModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -21,12 +22,15 @@ const routes: Routes = [
   { path: 'delete/:id', component: AccountDeleteComponent }
 ]
 
+
+
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    FlexModule,
+    FlexLayoutModule,
     SharedModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   exports: [

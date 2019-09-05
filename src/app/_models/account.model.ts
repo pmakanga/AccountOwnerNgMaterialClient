@@ -6,7 +6,6 @@ export interface Account{
     dateCreated: Date;
     accountType: string;
     ownerId?: string;
-
-    ownerName?: Owner
+    owner: string;
 
 }

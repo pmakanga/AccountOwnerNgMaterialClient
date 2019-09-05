@@ -14,7 +14,7 @@ import { ErrorHandlerService } from 'src/app/_services/error-handler.service';
 })
 export class OwnerCreateComponent implements OnInit {
 
-  public ownerForm: FormGroup;
+  public ownerForm: FormGroup
   private dialogConfig;
 
   constructor(private location: Location, private repository: RepositoryService,
@@ -39,9 +39,6 @@ export class OwnerCreateComponent implements OnInit {
     return this.ownerForm.controls[controlName].hasError(errorName);
   }
 
-  public onCancel = () => {
-    this.location.back();
-  }
 
   public createOwner = (ownerFormValue) => {
     if(this.ownerForm.valid) {
@@ -70,8 +67,11 @@ export class OwnerCreateComponent implements OnInit {
       (error) => {
         this.errorService.dialogConfig = { ...this.dialogConfig }
         this.location.back();
-      }
-      )
+      });
+  }
+
+  public onCancel = () => {
+    this.location.back();
   }
 
 }

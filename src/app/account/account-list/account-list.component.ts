@@ -32,27 +32,27 @@ export class AccountListComponent implements OnInit, AfterViewInit {
   }
 
   getAllAccounts() {
-    this.repository.getData('api/account')
+    this.repository.getData('api/account/owner')
       .subscribe(res => {
         this.dataSource.data = res as Account[];
-        console.log(this.dataSource);
+        // console.log(this.dataSource);
       },
       error => {
         this.errorService.handleError(error)
       });
   }
 
-  redirectToDetails = (id: string) => {
+  public redirectToDetails = (id: string) => {
     let url: string = `/account/details/${id}`;
     this.router.navigate([url]);
   }
 
-  redirectToUpdate = (id: string) => {
+  public redirectToUpdate = (id: string) => {
     let url: string = `/account/update/${id}`;
     this.router.navigate([url]);
   }
 
-  redirectToDelete = (id: string) => {
+ public redirectToDelete = (id: string) => {
     let url: string = `/account/delete/${id}`;
     this.router.navigate([url]);
   }

@@ -1,3 +1,51 @@
-<p>
-  account-create works!
-</p>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Create a new Account</mat-card-title>
+        <form [formGroup]="accountForm" autocomplete="off" novalidate (ngSubmit)="createAccount(accountForm.value)"
+            fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-card-content>
+                <mat-form-field>
+                    <mat-select placeholder="Select Account" (change)="changeAccount($event)"
+                        formControlName="accountType">
+                        <mat-option *ngFor="let accountType of accountTypes" [value]="accountType.value">
+                            {{accountType.display}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                    <mat-error>
+                        <span
+                            *ngIf="!accountForm.get('accountType').valid && accountForm.get('accountType').touched">Please
+                            Select an Account Type!</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose date Created"
+                        formControlName="dateCreated" id="dateCreated" readonly (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select placeholder="Select Owner" (change)="changeOwner($event)" formControlName="ownerId">
+                        <mat-option *ngFor="let owner of owners" [value]="owner.ownerId">
+                            {{owner.ownerName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                    <mat-error>
+                        <span *ngIf="!accountForm.get('ownerId').valid && accountForm.get('ownerId').touched">Please
+                            Select Owner!</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </mat-card-content>
+
+            <mat-card-actions align="center">
+                <button mat-raised-button color="primary" [disabled]="!accountForm.valid">Create</button>
+                <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+            </mat-card-actions>
+        </form>
+
+    </mat-card>
+</section>
