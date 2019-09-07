@@ -71,4 +71,6 @@ export class OwnerDeleteComponent implements OnInit {
         this.errorMessage = this.errorHandler.errorMessage;
       });
   }
+
+  
 }

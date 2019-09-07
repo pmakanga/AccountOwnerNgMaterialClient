@@ -1,3 +1,26 @@
-<p>
-  account-delete works!
-</p>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title align="center">Delete Owner</mat-card-title>
+      <br>
+      <mat-card-content>
+          <div fxLayout="column wrap" fxLayoutGap="40px">
+              <div fxLayout="row wrap" fxFlex>
+                  <div fxFlex><strong>Owner's name:</strong></div>
+                  <div fxFlex>{{account?.accountType}}</div>
+              </div>
+              <div fxLayout="row wrap" fxFlex>
+                  <div fxFlex><strong>Date of birth:</strong></div>
+                  <div fxFlex>{{account?.dateCreated | date}}</div>
+              </div>
+              <div fxLayout="row wrap" fxFlex>
+                  <div fxFlex><strong>Owner's address:</strong></div>
+                  <div fxFlex>{{account?.ownerId}}</div>
+              </div>
+          </div>
+      </mat-card-content>
+      <mat-card-actions align="center">
+          <button mat-raised-button color="warn" (click)="deleteAccount()">Delete</button>
+          <button type="button" mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+  </mat-card>
+</section>

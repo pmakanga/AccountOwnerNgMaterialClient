@@ -16,6 +16,7 @@ export class AccountListComponent implements OnInit, AfterViewInit {
 
   public dataSource = new MatTableDataSource<Account>()
 
+
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator
 
@@ -35,7 +36,7 @@ export class AccountListComponent implements OnInit, AfterViewInit {
     this.repository.getData('api/account/owner')
       .subscribe(res => {
         this.dataSource.data = res as Account[];
-        // console.log(this.dataSource);
+        console.log(this.dataSource);
       },
       error => {
         this.errorService.handleError(error)

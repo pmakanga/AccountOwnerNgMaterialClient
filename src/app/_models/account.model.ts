@@ -3,9 +3,9 @@ import { Owner } from './owner.model';
 
 export interface Account{
     id: string;
-    dateCreated: Date;
     accountType: string;
-    ownerId?: string;
+    dateCreated: Date;
     owner: string;
+    ownerId: string;
 
 }

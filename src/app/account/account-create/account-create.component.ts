@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RepositoryService } from 'src/app/_services/repository.service';
 import { MatDialog } from '@angular/material';
 import { ErrorHandlerService } from 'src/app/_services/error-handler.service';
-import { Owner } from 'src/app/_models/owner.model';
 import { Location } from '@angular/common';
 import { AccountForCreation } from 'src/app/_models/accountforcreation.model';
 import { SuccessDialogComponent } from 'src/app/shared/dialogs/success-dialog/success-dialog.component';
@@ -39,7 +38,6 @@ export class AccountCreateComponent implements OnInit {
     this.accountForm = new FormGroup({
       accountType: new FormControl('', [Validators.required]),
       dateCreated: new FormControl(new Date()),
-      // ownerName: new FormControl('', [Validators.required]),
       ownerId: new FormControl('', [Validators.required])
     });
 
@@ -70,7 +68,7 @@ export class AccountCreateComponent implements OnInit {
     if(this.accountForm.valid) {
       this.executeAccountCreation(accountFormValue);
     }else {
-      console.log(`Issue occured`);
+      console.log(`An Issue occured!`);
     }
   }
  
@@ -80,7 +78,6 @@ export class AccountCreateComponent implements OnInit {
       accountType: accountFormValue.accountType,
       dateCreated: accountFormValue.dateCreated,
       ownerId: accountFormValue.ownerId,
-      // ownerName: accountFormValue.ownerName
     }
 
     let apiUrl = `api/account`;

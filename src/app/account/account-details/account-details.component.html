@@ -1,3 +1,29 @@
-<p>
-  account-details works!
-</p>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Details for Account and Owner</mat-card-title>
+    <br>
+    <mat-card-content>
+      <div fxLayout="column wrap" fxLayoutGap="40px">
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex><strong>Account Type:</strong></div>
+          <div fxFlex>{{account?.accountType}}</div>
+        </div>
+
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex><strong>Date Created:</strong></div>
+          <div fxFlex>{{account?.dateCreated | date}}</div>
+        </div>
+
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex><strong>Owner:</strong></div>
+          <div fxFlex>{{account?.ownerId}}</div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <mat-form-field>
+
+      </mat-form-field> -->
+    </mat-card-actions>
+  </mat-card>
+</section>
