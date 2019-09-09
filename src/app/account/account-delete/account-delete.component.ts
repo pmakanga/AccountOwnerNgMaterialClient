@@ -6,6 +6,7 @@ import { Account } from 'src/app/_models/account.model';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material';
 import { SuccessDialogComponent } from 'src/app/shared/dialogs/success-dialog/success-dialog.component';
+import { Owner } from 'src/app/_models/owner.model';
 
 @Component({
   selector: 'app-account-delete',
@@ -16,6 +17,7 @@ export class AccountDeleteComponent implements OnInit {
 
   errorMessage: string = '';
   account: Account;
+  owner: Owner;
   dialogConfig;
 
   constructor(private repository: RepositoryService, private errorHandler: ErrorHandlerService,
@@ -24,7 +26,7 @@ export class AccountDeleteComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getAccountById;
+    this.getAccountById();
 
     this.dialogConfig = {
       height: '200px',
@@ -41,6 +43,13 @@ export class AccountDeleteComponent implements OnInit {
     this.repository.getData(apiUrl)
       .subscribe(res => {
         this.account = res as Account;
+        let oApiUrl: string = `api/owner/${this.account.ownerId}`;
+        this.repository.getData(oApiUrl)
+          .subscribe(res => {
+            this.repository.getData(oApiUrl)
+            this.owner = res as Owner
+          })
+
       },
       (error) => {
         this.errorHandler.handleError(error)
@@ -54,7 +63,9 @@ export class AccountDeleteComponent implements OnInit {
   }
 
   deleteAccount() {
-    let apiUrl = `account/delete/${this.account.id}`;
+    let apiUrl = `api/account/${this.account.id}`;
+
+    console.log(`this is the Api url:- ${apiUrl}`);
 
     this.repository.delete(apiUrl)
       .subscribe(res => {
