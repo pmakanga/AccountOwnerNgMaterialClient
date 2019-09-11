@@ -4,6 +4,8 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { RepositoryService } from 'src/app/_services/repository.service';
 import { ErrorHandlerService } from 'src/app/_services/error-handler.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { OwnerDataSources } from 'src/app/owner-data-sources';
 
 @Component({
   selector: 'app-owner-list',
@@ -16,6 +18,12 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
 
   public dataSource = new MatTableDataSource<Owner>()
 
+  public _datasource = OwnerDataSources;
+  
+
+  
+    
+
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator
 
@@ -23,7 +31,8 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.getAllOwners();
+    this.getAllOwners()
+    this._datasource;
   }
 
   ngAfterViewInit(): void {

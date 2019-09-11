@@ -1,3 +1,17 @@
+<!-- PURE CSS LOADING ICON -->
+<!-- <div class="loading-container" *ngIf="_datasource.prototype.loading$ | async">
+  <div class="lds-grid">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div> -->
 <div fxLayout fxLayoutAlign="center center">
   <mat-form-field fxFlex="40%">
     <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
@@ -48,9 +62,15 @@
       </button>
     </td>
   </ng-container>
+  <!-- <ng-container matColumnDef="noData">
+    <mat-footer-cell *matFooterCellDef colspan="6">
+    No data.
+    </mat-footer-cell>
+</ng-container> -->
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <!-- <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row> -->
 </table>
 
 <mat-paginator [pageSize]="2" [pageSizeOptions]="[2, 4, 6, 10, 20]">
