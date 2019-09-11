@@ -16,6 +16,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
 
 import { RepositoryService } from './_services/repository.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { RepositoryService } from './_services/repository.service';
       HttpClientModule
    ],
    providers: [
-      RepositoryService
+      RepositoryService,
+      {provide: LocationStrategy, useClass: HashLocationStrategy}
    ],
    bootstrap: [
       AppComponent
